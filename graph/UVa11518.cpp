@@ -32,7 +32,7 @@ int main(){
 			cin>>a>>b;
 			adj[a].push_back(b);
 		}
-		
+
 		memset(v, 0, sizeof(v));
 
 		int count = 0;
