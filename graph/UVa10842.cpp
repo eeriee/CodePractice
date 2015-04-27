@@ -59,9 +59,8 @@ int main(){
         for(int j=0; j<e; j++){
             int ui = edges[j].from;
             int vi = edges[j].to;
-            if(find(ui) != find(vi)){
-                      Union(ui,vi);                           
-            }
+            if(find(ui) != find(vi))
+                Union(ui,vi);                           
             if(root[find(ui)] == -n && edges[j].len > min ) 
                 min = edges[j].len;
         }
