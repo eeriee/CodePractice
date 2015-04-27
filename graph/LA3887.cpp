@@ -29,7 +29,7 @@ struct edge{
 
 int find (int a)  {	
 	if (root[a] < 0)		
-		return a;	
+		return a;
 	else		
 		return root[a] = find(root[a]);
 }
