@@ -1,4 +1,3 @@
-//Slim Span - Tokyo Regional 07
 #include<iostream>
 #include<queue>
 #include<stack>
@@ -80,11 +79,11 @@ int main(){
 		int answer = -1;
 		int temp;
 		for(int i=0; i<m; i++){
-				temp = kruskal(i);
-				if(temp>=0){
-					if(answer==-1)
-						answer = INF;
-					answer =  min(temp,answer);
+			temp = kruskal(i);
+			if(temp>=0){
+				if(answer==-1)
+					answer = INF;
+				answer =  min(temp,answer);
 			}
 		}
 		printf("%d\n", answer);
