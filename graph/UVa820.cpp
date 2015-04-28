@@ -53,17 +53,17 @@ int EdmondsKarp(){
 	return f;	
 }
 int main(){
-    int set = 1;
-    while(scanf("%d", &n)){
-			memset(cap,0,sizeof(cap));
-          if(n == 0) break;
-          scanf("%d %d %d", &s, &t, &c);
-          for(int i=0; i<c; i++){ 
-				scanf("%d %d %d", &x, &y, &w);
-				cap[x][y] += w;	
-				cap[y][x] += w;			                  
-          }     
-		  printf("Network %d\nThe bandwidth is %d.\n\n", set++, EdmondsKarp());   
-    }
-    return 0;
+	int set = 1;
+	while(scanf("%d", &n)){
+		memset(cap,0,sizeof(cap));
+		if(n == 0) break;
+		scanf("%d %d %d", &s, &t, &c);
+		for(int i=0; i<c; i++){ 
+			scanf("%d %d %d", &x, &y, &w);
+			cap[x][y] += w;	
+			cap[y][x] += w;			                  
+		}     
+		printf("Network %d\nThe bandwidth is %d.\n\n", set++, EdmondsKarp());   
+	}
+	return 0;
 }
