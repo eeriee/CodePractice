@@ -19,18 +19,15 @@ public:
                 p2 = p1;
             }
         }
-        if(p1->val < 9){
-            ++(p1->val);
-        }else{
-            ++(p2->val);
-            while(p2->next != NULL){
-                p2 = p2->next;
-                p2->val = 0;
-            }  
-        }
+ 
+        ++(p2->val);
+        while(p2->next != NULL){
+            p2 = p2->next;
+            p2->val = 0;
+        }  
+
         if(dummy->val == 1)
             return dummy;
-        else
-            return dummy->next;
+        return dummy->next;
     }
 };
