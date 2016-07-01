@@ -10,6 +10,22 @@
 class Solution {
 public:
     TreeNode* inorderSuccessor(TreeNode* root, TreeNode* p) {
+        TreeNode* succ = NULL, *node = root;
+        while(node != NULL){
+            if(node->val <= p->val){
+                node = node->right;
+            }else{
+                succ = node;
+                node = node->left;
+            }
+        }
+        return succ;
+    }
+};
+/*
+class Solution {
+public:
+    TreeNode* inorderSuccessor(TreeNode* root, TreeNode* p) {
         if(p->right != NULL){
             return minVal(p->right);
         }
@@ -34,3 +50,4 @@ public:
         return p;
     }
 };
+*/
