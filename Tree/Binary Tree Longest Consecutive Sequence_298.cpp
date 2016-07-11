@@ -40,3 +40,22 @@ public:
     }
     int maxLen;
 };
+/*
+class Solution {
+public:
+    int longestConsecutive(TreeNode* root) {
+        if(root == NULL) return 0;
+        dfs(root, 0, root->val);
+        return maxLen;
+    }
+    void dfs(TreeNode* node, int len, int val){
+        if(node == NULL) return;
+        if (node->val == val) ++len;
+        else len = 1;
+        maxLen = max(len, maxLen);
+        dfs(node->left, len, node->val+1);
+        dfs(node->right, len, node->val+1);
+    }
+    int maxLen = 0;
+};
+*/
