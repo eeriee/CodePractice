@@ -8,7 +8,6 @@ public:
         for(int i = 1; i < preorder.size(); i++){
             if(preorder[i] < preorder[i-1]){ //left child
                 if(preorder[i]<min || preorder[i]>max) return false;
-                root.push(preorder[i]);
             }else{//right child
                 while(!root.empty()){
                     if(preorder[i] > root.top()){
@@ -20,9 +19,9 @@ public:
                         break;
                     }
                 }
-                if(preorder[i] < min || preorder[i] > max) return false;
-                root.push(preorder[i]);
-            }
+                //if(preorder[i] < min || preorder[i] > max) return false;
+            } 
+            root.push(preorder[i]);
         }
         return true;
     }
