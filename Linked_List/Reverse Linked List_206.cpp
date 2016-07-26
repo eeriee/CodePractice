@@ -6,7 +6,7 @@
  *     ListNode(int x) : val(x), next(NULL) {}
  * };
  */
-#Iterative Solution 1
+//Iterative Solution 1
 class Solution {
 public:
     ListNode* reverseList(ListNode* head) {
@@ -20,7 +20,7 @@ public:
         return prev;
     }
 };
-#Iterative Solution 2
+//Iterative Solution 2
 class Solution {
 public:
     ListNode* reverseList(ListNode* head) {
@@ -43,7 +43,7 @@ public:
         return newHead;
     }
 };
-#Reversive Solution
+//Reversive Solution
 class Solution {
 public:
     ListNode* reverseList(ListNode* head) {
