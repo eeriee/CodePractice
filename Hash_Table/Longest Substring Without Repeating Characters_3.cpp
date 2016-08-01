@@ -19,7 +19,7 @@ public:
 for ASCII char sequence, use this as a hashmap. Much faster.
 public:
     int lengthOfLongestSubstring(string s) {
-        vector<int> dict(128, -1);
+        vector<int> dict(128, -1); // ASCII table 128. Extended ASCII Codes 256.
         int maxLen = 0, start = 0, i;
         for (i = 0; i < s.length(); i++) {
             char c = s[i];
