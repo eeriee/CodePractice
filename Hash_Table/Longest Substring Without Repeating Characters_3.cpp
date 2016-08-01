@@ -16,7 +16,7 @@ public:
     }
 };
 /*
-for ASCII char sequence, use this as a hashmap. Much faster.
+Use ASCII char sequence as a hashmap. Much faster.
 public:
     int lengthOfLongestSubstring(string s) {
         vector<int> dict(128, -1); // ASCII table 128. Extended ASCII Codes 256.
