@@ -1,7 +1,6 @@
 class Solution {
 public:
     vector<vector<int>> multiply(vector<vector<int>>& A, vector<vector<int>>& B) {
-        vector<int> sums;
         int rows = A.size(), cols = B[0].size();
 
         if(rows == 0 || cols == 0) return {};
@@ -28,6 +27,29 @@ public:
     }
     
 };
+/* No additional table:
+class Solution {
+public:
+    vector<vector<int>> multiply(vector<vector<int>>& A, vector<vector<int>>& B) {
+        int rows = A.size(), cols = B[0].size();
+
+        vector<vector<int>> result(rows, vector<int>(cols));
+
+        for(int i = 0; i < rows; ++i){
+            for(int j = 0; j < A[0].size(); ++j){
+                if(A[i][j]){
+                    for(int k = 0; k < cols; ++k){
+                        if(B[j][k])
+                            result[i][k] += A[i][j] * B[j][k];
+                    }
+                }
+            }
+        }
+        return result;
+    }
+    
+};
+*/
 /*
 Question:
 Given two sparse matrices A and B, return the result of AB.
