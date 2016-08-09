@@ -1,2 +1,2 @@
-#ACM Questions.
-#Leetcode.
+#UVa
+#Leetcode
