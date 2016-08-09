@@ -50,4 +50,3 @@ private:
 // NumArray numArray(nums);
 // numArray.sumRange(0, 1);
 // numArray.sumRange(1, 2);
-
