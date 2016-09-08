@@ -1,9 +1,9 @@
-//pay attention to the cmp function. O(nlogn)
+//pay attention to the cmp function. O(nlogn). Turn 
 class Solution {
     static bool cmp(const pair<int,int> &e1, const pair<int,int> &e2){
         if(e1.first == e2.first) return e1.second > e2.second;
         return e1.first < e2.first;
-    }
+    }//the cmp turn it into longest increasing sequences problem.
     public:
     int maxEnvelopes(vector<pair<int, int>>& envelopes) {
         if(envelopes.size() == 0) return 0;
@@ -18,6 +18,35 @@ class Solution {
                 *pos = h;
         }
         return v.size();
+    }
+};
+//DP. O(n2)
+class Solution {
+    static bool cmp(const pair<int,int> &e1, const pair<int,int> &e2){
+        if(e1.first == e2.first) return e1.second > e2.second;
+        return e1.first < e2.first;
+    }
+    public:
+    int maxEnvelopes(vector<pair<int, int>>& envelopes) {
+        int n = envelopes.size();
+        if(n == 0 || n == 1) return n;
+        sort(envelopes.begin(), envelopes.end(), cmp);
+        vector<int> v(n);
+        for(int i = 0; i < n; ++i){
+            v[i] = 1;
+        }
+        for(int i = 1; i < n; ++i){
+            for(int j = 0; j < i; ++j){
+                if(envelopes[j].second < envelopes[i].second)
+                    v[i] = max(v[i], v[j]+1);
+            }
+        }
+        int maxEn = 1;
+        for(int len: v){
+            cout<<len<<endl;
+            maxEn = max(maxEn, len);
+        }
+        return maxEn;
     }
 };
 //O(n^2)
