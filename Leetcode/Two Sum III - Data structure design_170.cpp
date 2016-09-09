@@ -1,0 +1,57 @@
+class TwoSum {
+public:
+
+    // Add the number to an internal data structure.
+	void add(int number) {//O(1)
+	    ++mp[number]; 
+	}
+
+    // Find if there exists any pair of numbers which sum is equal to the value.
+	bool find(int value) {//O(n)
+	    for(auto it = mp.begin(); it != mp.end(); ++it){
+	        int curr = it->first, freq = it->second, target = value - curr;
+	        if(mp.count(target) && (curr != target || freq > 1)){ //count() faster than find()
+	            return true;
+	        }
+	    }
+	    return false;
+	}
+	
+private:
+    unordered_map<int, int> mp;
+}; //1380ms
+
+/* faster 1228ms
+class TwoSum {
+    unordered_multiset<int> nums;
+public:
+    void add(int number) {
+        nums.insert(number);
+    }
+    bool find(int value) {
+        for (int i : nums) {
+            int count = i == value - i ? 1 : 0;
+            if (nums.count(value - i) > count) {
+                return true;
+            }
+        }
+        return false;
+    }
+};
+*/
+// Your TwoSum object will be instantiated and called as such:
+// TwoSum twoSum;
+// twoSum.add(number);
+// twoSum.find(value);
+/* 
+Question:
+Design and implement a TwoSum class. It should support the following operations: add and find.
+
+add - Add the number to an internal data structure.
+find - Find if there exists any pair of numbers which sum is equal to the value.
+
+For example,
+add(1); add(3); add(5);
+find(4) -> true
+find(7) -> false
+*/
