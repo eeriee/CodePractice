@@ -22,28 +22,28 @@ public:
             int cur = rooms[vi][vj];
             if(vi > 0){
                 int* up = &rooms[vi-1][vj];
-                if(*up = INT_MAX){
+                if(*up == INT_MAX){
                     *up = cur+1;
                     q.push(make_pair(vi-1, vj));
                 }
             }
             if(vi+1<ro){
                 int* down = &rooms[vi+1][vj];
-                if(*down = INT_MAX){
+                if(*down == INT_MAX){
                     *down = cur+1;
                     q.push(make_pair(vi+1, vj));
                 }
             }
             if(vj > 0){
                 int* left = &rooms[vi][vj-1];
-                if(*left = INT_MAX){
+                if(*left == INT_MAX){
                     *left = cur+1;
                     q.push(make_pair(vi, vj-1));
                 }
             }
             if(vj+1<co){
                 int* right = &rooms[vi][vj+1];
-                if(*right = INT_MAX){
+                if(*right == INT_MAX){
                     *right = cur+1;
                     q.push(make_pair(vi, vj+1));
                 }
