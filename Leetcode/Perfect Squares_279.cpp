@@ -27,3 +27,28 @@ public:
         return 0;
     }
 };
+
+//modified way
+class Solution {
+public:
+    int numSquares(int n) {
+        queue<int> q;
+        q.push(n);
+        int step = 0;
+        while(!q.empty()){
+            int breadth = q.size();
+            for(int b = 0; b < breadth; ++b){
+                int num = q.front();
+                q.pop();
+                int sqrt_root = (int) sqrt(num);
+                if(sqrt_root*sqrt_root == num) return step+1;
+                for(int i = sqrt_root; i > 0; --i){
+                    q.push(num - i*i);
+                }
+            }
+            ++step;
+        }
+        return -1;
+    }
+    
+};
