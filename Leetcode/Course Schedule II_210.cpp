@@ -48,7 +48,7 @@ public:
         vector<bool> onPath(numCourses, false), visited(numCourses, false);
         stack<int> s;
         for(int i = 0; i < numCourses; ++i){
-            if(!visited[i] && !dfs(i, onPath, visited, graph, s))
+            if(!dfs(i, onPath, visited, graph, s))
                 return {};
         }
         vector<int> order;
@@ -59,14 +59,14 @@ public:
         return order;
     }
     bool dfs(int node, vector<bool>& onPath, vector<bool>& visited, vector<unordered_set<int>>& graph, stack<int>& s){
+        if(visited[node]) return true;
         if(onPath[node]) return false;
         onPath[node] = true;
         for(int ne: graph[node]){
-            if(!visited[ne] && !dfs(ne, onPath, visited, graph, s)) // put all course depend on pre first
+            if(!dfs(ne, onPath, visited, graph, s))
                 return false;
         }
         visited[node] = true;
-        onPath[node] = false;
         s.push(node);
         return true;
     }
