@@ -26,10 +26,10 @@ struct edge{
 
 } edges[N*N];
 
-int find (int a)  {	
-	if (root[a] < 0)		
-		return a;	
-	else		
+int find (int a)  { 	
+	if (root[a] < 0) 		
+		return a; 	
+	else 		
 		return root[a] = find(root[a]);
 }
 void UnionSet (int set1, int set2, int c) {
@@ -41,8 +41,8 @@ void Union (int a, int b, int c) {
 	int root1=find(a);
 	int root2=find(b);
 	if  (root[root1] < root[root2]) 
-		UnionSet(root1, root2, c);	
-	else		
+		UnionSet(root1, root2, c); 	
+	else 		
 		UnionSet(root2, root1, c);
 }
 
