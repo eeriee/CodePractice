@@ -37,7 +37,7 @@ public:
 };
 
 /*
-Bit Manipulation
+Bit Manipulation, time complexity. O(n*2^n)
 
 This is the most clever solution that I have seen. The idea is that to give all the possible subsets, we just need to exhaust all the possible combinations of the numbers. And each number has only two possibilities: either in or not in a subset. And this can be represented using a bit.
 
