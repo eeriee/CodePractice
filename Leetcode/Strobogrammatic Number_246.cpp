@@ -1,3 +1,21 @@
+//Very triky answer! Here is a C++ code. But it's really easy-written in Java. 
+//https://discuss.leetcode.com/topic/20837/4-lines-in-java.
+class Solution {
+public:
+    bool isStrobogrammatic(string num) {
+        int i = 0, j = num.length()-1;
+        string s ="00 11 88 696";
+        while(i<=j){
+            string str;
+            str += num[i];
+            str += num[j];
+            if(s.find(str) == string::npos) return false;
+            ++i;
+            --j;
+        }
+        return true;
+    }
+};
 //for this solution. You can also store 0,1,8,6,9 and their corresponding value in a hashmap. But it's slower.
 class Solution {
 public:
@@ -29,24 +47,7 @@ public:
         return true;
     }
 };
-//Very triky answer! Here is a C++ code. But it's really easy-written in Java. 
-//https://discuss.leetcode.com/topic/20837/4-lines-in-java.
-class Solution {
-public:
-    bool isStrobogrammatic(string num) {
-        int i = 0, j = num.length()-1;
-        string s ="00 11 88 696";
-        while(i<=j){
-            string str;
-            str += num[i];
-            str += num[j];
-            if(s.find(str) == string::npos) return false;
-            ++i;
-            --j;
-        }
-        return true;
-    }
-};
+
 /* 
 Question:
 A strobogrammatic number is a number that looks the same when rotated 180 degrees (looked at upside down).
