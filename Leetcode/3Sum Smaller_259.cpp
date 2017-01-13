@@ -1,3 +1,24 @@
+// re-do the problem Jan 12
+class Solution {
+public:
+    int threeSumSmaller(vector<int>& nums, int target) {
+        sort(nums.begin(), nums.end());
+        int n = nums.size(), count = 0;
+        for(int i = 0; i < n; ++i){
+            int tar = target - nums[i];
+            int j = i+1, k = n-1;
+            while(j < k){
+                if(nums[j] + nums[k] < tar){
+                    count += k - j;
+                    ++j;
+                }else{
+                    --k;
+                }
+            }
+        }
+        return count;
+    }
+};
 class Solution {
 public:
     int threeSumSmaller(vector<int>& nums, int target) {
