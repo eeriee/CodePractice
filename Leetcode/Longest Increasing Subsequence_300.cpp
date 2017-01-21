@@ -2,24 +2,18 @@
 class Solution {
 public:
     int lengthOfLIS(vector<int>& nums) {
-        int n = nums.size();
-        if(n == 0 || n == 1) return n;
-        vector<int> LIS(n);
-        for(int i = 0; i < n; ++i){
-            LIS[i] = 1;
-        }
-        for(int i = 1; i < n; ++i){
+        if(nums.empty()) return 0;
+        vector<int> dp(nums.size(), 1);
+        int res = 1;
+        for(int i = 0; i < nums.size(); ++i){
             for(int j = 0; j < i; ++j){
                 if(nums[j] < nums[i]){
-                    LIS[i] = max(LIS[i], LIS[j]+1);
+                    dp[i] = max(dp[j]+1, dp[i]);
+                    res = max(dp[i], res);
                 }
             }
         }
-        int maxLen = 1;
-        for(int i = 0; i < n; ++i){
-            maxLen = max(maxLen, LIS[i]);
-        }
-        return maxLen;
+        return res;
     }
 };
 //O(nlogn)
