@@ -43,7 +43,7 @@ public:
         return room;
     }
 };
-//fast solution. O(nlogn)
+//slow solution. O(nlogn)
 class Solution {
 public:
     static bool cmp(Interval i1, Interval i2){
@@ -68,7 +68,7 @@ public:
     }
 };
 
-//smart but not fast. 
+//fast. O(nlogn). 
 class Solution {
 public:
     int minMeetingRooms(vector<Interval>& intervals) {
