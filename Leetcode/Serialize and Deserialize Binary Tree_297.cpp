@@ -7,6 +7,73 @@
  *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
  * };
  */
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ * };
+ */
+// use istringstream
+class Codec {
+public:
+
+    // Encodes a tree to a single string.
+    string serialize(TreeNode* root) {
+        string s = "";
+        queue<TreeNode*> tree;
+        tree.push(root);
+        while(!tree.empty()){
+            int breadth = tree.size();
+            string temp = "";
+            for(int i = 0; i < breadth; ++i){
+                TreeNode* node = tree.front();
+                tree.pop();
+                if(node ==  NULL){
+                    s += "n";
+                }else{
+                    s += to_string(node->val);
+                    tree.push(node->left);
+                    tree.push(node->right);
+                }
+                s += ' ';
+            }
+        }
+        return s;
+    }
+
+    // Decodes your encoded data to tree.
+    TreeNode* deserialize(string data) {
+        istringstream in(data);
+        string s;
+        in >> s;
+        if(s == "n")
+            return NULL;
+        TreeNode* root = new TreeNode(stoi(s));
+        queue<TreeNode*> tree;
+        tree.push(root);
+        while(!tree.empty()){
+            TreeNode* node = tree.front();
+            tree.pop();
+            string left, right;
+            in >> left;
+            in >> right;
+            if(left != "n"){
+                TreeNode* leftChild = new TreeNode(stoi(left));
+                node->left = leftChild;
+                tree.push(leftChild);
+            }
+            if(right != "n"){
+                TreeNode* rightChild = new TreeNode(stoi(right));
+                node->right = rightChild;
+                tree.push(rightChild);
+            }
+        }
+        return root;
+    }
+};
 //bfs -written by myself
 class Codec {
 public:
@@ -66,7 +133,7 @@ public:
 // dfs
 class Codec {
 public:
-
+    //preorder
     // Encodes a tree to a single string.
     string serialize(TreeNode* root) {
         if(root == NULL) return "n";
@@ -75,7 +142,6 @@ public:
 
     // Decodes your encoded data to tree.
     TreeNode* deserialize(string data) {
-        cout << data<<endl;
         stringstream ss(data);
         return deserialize(ss);
     }
