@@ -25,7 +25,8 @@ public:
     }
 };
 
-// O(nlogn)
+//For the current node root, calling depth() for its left and right children actually has to access all of its children, thus the complexity is O(N). We do this for each node in the tree, so the overall complexity of isBalanced will be O(N^2). This is a top down approach.
+//O(NlogN), for each level you are doing a total scan of N, and there are logN levels.
 class Solution {
 public:
     bool isBalanced(TreeNode* root) {
